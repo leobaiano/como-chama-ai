@@ -1,0 +1,873 @@
+/******************************************************************
+Theme: 		ThemeLuxe Framework
+Author: 	Joshua Flowers
+Author URI: http://themeluxe.com
+
+File: ie.scss
+Stylesheet: IE Stylesheet
+
+So instead of using the respond.js file to add media query support
+to IE, we're going to use SASS to create an easily readable css file.
+Here, we import all the styles the standard stylesheet gets, only
+without the media queries. No need to worry about editing anything!
+
+******************************************************************/
+/*
+Remember, all the BASE styles are called already since IE can
+read those. Below, we need to import only the stuff IE can't 
+understand (what's inside the media queries). We also need to
+import the mixins file so SASS can understand the variables.
+*/
+/* import mixins */
+/******************************************************************
+File: _mixins.scss
+Stylesheet: Mixins & Constants Stylesheet
+
+This is where you can take advantage of Sass' great features:
+Mixins & Constants. I won't go in-depth on how they work exactly,
+there are a few articles below that will help do that. What I will
+tell you is that this will help speed up simple changes like
+changing a color or adding CSS3 techniques gradients.
+
+A WORD OF WARNING: It's very easy to overdo it here. Be careful and
+remember less is more.
+
+******************************************************************/
+/*********************
+CLEARFIXIN'
+*********************/
+.clearfix {
+  zoom: 1;
+}
+.clearfix:before, .clearfix:after {
+  content: "";
+  display: table;
+}
+.clearfix:after {
+  clear: both;
+}
+
+/*********************
+TOOLS
+*********************/
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.image-replacement {
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+/*********************
+COLORS
+*********************/
+/*********************
+TYPOGRAPHY
+*********************/
+.text-left {
+  text-align: left;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.alert-warning, .alert-info, .alert-error, .alert-success {
+  margin: 10px;
+  padding: 5px 18px;
+  border: 1px solid;
+}
+
+.alert-warning {
+  border-color: #e8dc59;
+  background: #ebe16f;
+}
+
+.alert-info {
+  border-color: #bfe4f4;
+  background: #d5edf8;
+}
+
+.alert-error {
+  border-color: #f8cdce;
+  background: #fbe3e4;
+}
+
+.alert-success {
+  border-color: #deeaae;
+  background: #e6efc2;
+}
+
+/*********************
+PREFIXES
+*********************/
+/*********************
+TRANSITION
+*********************/
+/*
+USAGE: @include transition(all 0.2s ease-in-out);
+*/
+/*********************
+TRANSITION
+*********************/
+/*
+USAGE: @include transform(rotate(360deg));
+*/
+/*********************
+OPACITY
+*********************/
+/*********************
+CSS3 GRADIENTS
+Be careful with these since they can
+really slow down your CSS. Don't overdo it.
+*********************/
+/* @include css-gradient(#dfdfdf,#f8f8f8); */
+/*********************
+BOX SIZING
+*********************/
+/* @include box-sizing(border-box); */
+/* NOTE: value of "padding-box" is only supported in Gecko. So
+probably best not to use it. I mean, were you going to anyway? */
+/*********************
+BOX SHADOW
+*********************/
+/*********************
+BUTTONS
+*********************/
+.button, .button:visited {
+  background: transparent;
+  border: 0px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  padding: 12px 30px;
+  color: white;
+  display: inline-block;
+  font-size: 12px;
+  font-weight: bold;
+  text-decoration: none;
+  text-transform: uppercase;
+  cursor: pointer;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  line-height: 21px;
+  border: 4px solid white;
+  -webkit-transition: all 0.3s linear;
+  -moz-transition: all 0.3s linear;
+  -o-transition: all 0.3s linear;
+  -ms-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+}
+.button .button-text, .button:visited .button-text {
+  text-transform: uppercase;
+  -webkit-transition: all 0.3s linear;
+  -moz-transition: all 0.3s linear;
+  -o-transition: all 0.3s linear;
+  -ms-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+}
+.button .button-icon, .button:visited .button-icon {
+  font-size: 14px;
+  margin-left: -5px;
+  padding-right: 5px;
+  line-height: 12px;
+}
+.button:hover, .button:focus, .button:visited:hover, .button:visited:focus {
+  color: #ff6f6f !important;
+  border-color: #ff6f6f;
+  background-color: transparent;
+}
+.button:hover .button-text, .button:focus .button-text, .button:visited:hover .button-text, .button:visited:focus .button-text {
+  color: #ff6f6f !important;
+}
+
+.button.small {
+  padding: 5px 28px;
+  font-size: 11px;
+}
+
+.button.large {
+  padding: 16px 30px;
+  font-size: 14px;
+}
+
+/*********************
+SCROLL TOP BUTTON
+*********************/
+#scroll-top {
+  position: fixed;
+  right: 10px;
+  bottom: 10px;
+  display: block;
+  width: 50px;
+  height: 50px;
+  background-color: #ff6f6f;
+  visibility: hidden;
+  -webkit-transition: all 0.1s linear;
+  -moz-transition: all 0.1s linear;
+  -o-transition: all 0.1s linear;
+  -ms-transition: all 0.1s linear;
+  transition: all 0.1s linear;
+}
+#scroll-top:hover {
+  background-color: #2d2d2d;
+}
+#scroll-top:after {
+  display: block;
+  content: '\e831';
+  color: #ffffff;
+  font-size: 37px;
+  font-family: 'fontello';
+  position: absolute;
+  left: 16px;
+  top: 14px;
+}
+
+#scroll-top.visible {
+  visibility: visible;
+}
+
+/******************************************************************
+File: _grid.scss
+Stylesheet: Grid Stylesheet
+
+******************************************************************/
+.onecol {
+  width: 5.801104972%;
+}
+
+/* 4.85%;  } /* grid_1  */
+.twocol {
+  width: 14.364640883%;
+}
+
+/* 13.45%; } /* grid_2  */
+.one_fifth {
+  width: 17.79006%;
+}
+
+.threecol, .one_fourth {
+  width: 22.928176794%;
+}
+
+/* 22.05%; } /* grid_3  */
+.fourcol, .one_third {
+  width: 31.491712705%;
+}
+
+/* 30.75%; } /* grid_4  */
+.two_fifth {
+  width: 38.34254%;
+}
+
+.fivecol {
+  width: 40.055248616%;
+}
+
+/* 39.45%; } /* grid_5  */
+.sixcol, .one_half {
+  width: 48.618784527%;
+}
+
+/* 48%;    } /* grid_6  */
+.sevencol {
+  width: 57.182320438000005%;
+}
+
+/* 56.75%; } /* grid_7  */
+.three_fifth {
+  width: 58.89503%;
+}
+
+.eightcol, .two_third {
+  width: 65.74585634900001%;
+}
+
+/* 65.4%;  } /* grid_8  */
+.ninecol, .three_fourth {
+  width: 74.30939226%;
+}
+
+/* 74.05%; } /* grid_9  */
+.four_fifth {
+  width: 79.44751%;
+}
+
+.tencol {
+  width: 82.87292817100001%;
+}
+
+/* 82.7%;  } /* grid_10 */
+.elevencol {
+  width: 91.436464082%;
+}
+
+/* 91.35%; } /* grid_11 */
+.twelvecol, #main.no-sidebar {
+  width: 99.999999993%;
+}
+
+/* 100%;   } /* grid_12 */
+.onecol, .twocol, .threecol, .fourcol, .fivecol, .sixcol, .sevencol, .eightcol, .ninecol, .tencol, .elevencol, .twelvecol, #main.no-sidebar,
+.one_fifth, .one_fourth, .two_fifth, .one_third, .one_half, .three_fifth, .two_third, .four_fifth {
+  position: relative;
+  float: left;
+  margin-left: 2.76243%;
+}
+
+.first, .twelvecol, #main.no-sidebar {
+  margin-left: 0;
+}
+
+.twelvecol, #main.no-sidebar {
+  margin-right: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.last {
+  float: right;
+  margin-right: 0px;
+}
+
+/******************************************************************
+File: _481up.scss
+Stylesheet: 481px and Up Stylesheet
+
+This stylesheet is loaded for larger devices. It's set to 
+481px because at 480px it would load on a landscaped iPhone.
+This isn't ideal because then you would be loading all those
+extra styles on that same mobile connection. 
+
+A word of warning. This size COULD be a larger mobile device,
+so you still want to keep it pretty light and simply expand
+upon your base.scss styles.
+
+******************************************************************/
+/*********************
+NAVIGATION STYLES
+*********************/
+/* .menu is clearfixed inside mixins.scss */
+.menu {
+  /* end .menu ul */
+}
+.menu ul {
+  /* end .menu ul li */
+  /* highlight current page */
+  /* end current highlighters */
+}
+.menu ul li {
+  /*
+  plan your menus and drop-downs wisely.
+  */
+}
+.menu ul li a {
+  /*
+  you can use hover styles here even though this size
+  has the possibility of being a mobile device.
+  */
+}
+
+/* end .menu */
+/*********************
+POSTS & CONTENT STYLES
+*********************/
+/* entry content */
+.entry-content {
+  /* at this larger size, we can start to align images */
+}
+.entry-content .alignleft, .entry-content img.alignleft {
+  margin-right: 1.5em;
+  display: inline;
+  float: left;
+}
+.entry-content .alignright, .entry-content img.alignright {
+  margin-left: 1.5em;
+  display: inline;
+  float: right;
+}
+.entry-content .aligncenter, .entry-content img.aligncenter {
+  margin-right: auto;
+  margin-left: auto;
+  display: block;
+  clear: both;
+}
+
+/* end .entry-content */
+/*********************
+FOOTER STYLES
+*********************/
+/*
+check your menus here. do they look good?
+do they need tweaking?
+*/
+/* end .footer-links */
+/*********************
+PORTFOLIO
+*********************/
+.isotope-item {
+  margin-left: -1px !important;
+}
+
+.portfolio2c.portfolio-container {
+  margin-right: 0px !important;
+}
+.portfolio2c.portfolio-container .isotope-item {
+  width: 100%;
+  /*margin: 0 .8% 11px .8%;*/
+  margin-left: 0px !important;
+}
+
+.portfolio3c.portfolio-container {
+  margin-right: -2px !important;
+}
+.portfolio3c.portfolio-container .isotope-item {
+  width: 50%;
+  /*margin: 0 .8% 11px .8%;*/
+  margin: 0;
+}
+
+.portfolio4c.portfolio-container {
+  margin-right: -2px !important;
+}
+.portfolio4c.portfolio-container .isotope-item {
+  width: 50%;
+  /*margin: 0 .5% 8px .5%;*/
+  margin: 0;
+}
+
+.portfolio5c.portfolio-container {
+  margin-right: -2px !important;
+}
+.portfolio5c.portfolio-container .isotope-item {
+  width: 50%;
+  /*margin: 0 .5% 8px .5%;*/
+  margin: 0;
+}
+
+/******************************************************************
+File: _768up.scss
+Stylesheet: Tablet & Small Desktop Stylesheet
+
+Here's where you can start getting into the good stuff.
+This size will work on iPads, other tablets, and desktops.
+So you can start working with more styles, background images,
+and other resources. You'll also notice the grid starts to
+come into play. Have fun!
+
+******************************************************************/
+/*********************
+GENERAL STYLES
+*********************/
+/*********************
+LAYOUT & GRID STYLES
+*********************/
+.wrap {
+  max-width: 1140px;
+}
+
+/*********************
+HEADER STYLES
+*********************/
+header[role="banner"] {
+  position: absolute;
+  top: 0px;
+  width: 100%;
+}
+
+header[role="banner"].scrolled {
+  position: fixed;
+  top: 0px;
+  -webkit-animation-name: fadeInDown;
+  animation-name: fadeInDown;
+}
+
+.admin-bar header[role="banner"].scrolled {
+  margin-top: 32px;
+}
+
+/*********************
+NAVIGATION STYLES
+*********************/
+#mobile-nav-button {
+  display: none;
+}
+
+#main-nav-wrapper {
+  display: block !important;
+}
+
+header[role="banner"] .nav {
+  float: right;
+  clear: none;
+  border: 0;
+  margin: 0px;
+  z-index: 100;
+  display: block;
+  /* end .menu ul li */
+  /* highlight current page */
+  /* end current highlighters */
+}
+header[role="banner"] .nav ul {
+  margin-top: 0;
+}
+header[role="banner"] .nav li {
+  float: left;
+  position: relative;
+  /*
+  plan your menus and drop-downs wisely.
+  */
+  /* showing sub-menus */
+}
+header[role="banner"] .nav li a {
+  padding: 0px 40px;
+  border-bottom: 0;
+  -webkit-transition: none;
+  -moz-transition: none;
+  -o-transition: none;
+  -ms-transition: none;
+  transition: none;
+  /*
+  you can use hover styles here even though this size
+  has the possibility of being a mobile device.
+  */
+}
+header[role="banner"] .nav li a:hover, header[role="banner"] .nav li a:focus {
+  color: #ff6f6f;
+}
+header[role="banner"] .nav li a:after {
+  content: '';
+  width: 1px;
+  height: 15px;
+  background-color: #e8e8e8;
+  display: block;
+  position: absolute;
+  top: 50%;
+  right: 0px;
+  margin-top: -7px;
+}
+header[role="banner"] .nav li:last-child a:after {
+  background-color: transparent;
+}
+header[role="banner"] .nav li ul.sub-menu,
+header[role="banner"] .nav li ul.children {
+  -webkit-transition: max-height 0.5s ease-in;
+  -moz-transition: max-height 0.5s ease-in;
+  -o-transition: max-height 0.5s ease-in;
+  -ms-transition: max-height 0.5s ease-in;
+  transition: max-height 0.5s ease-in;
+  margin-top: 0;
+  border: 0px solid #ccc;
+  border-top: 0;
+  position: absolute;
+  overflow: hidden;
+  max-height: 0px;
+  z-index: 8999;
+  background-color: #343434;
+  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05) ;
+  -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05) ;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05) ;
+  /* highlight sub-menu current page */
+}
+header[role="banner"] .nav li ul.sub-menu li,
+header[role="banner"] .nav li ul.children li {
+  line-height: 20px !important;
+  margin: 0 20px;
+  min-width: 120px;
+  /*
+  if you need to go deeper, go nuts
+  just remember deeper menus suck
+  for usability. k, bai.
+  */
+}
+header[role="banner"] .nav li ul.sub-menu li a,
+header[role="banner"] .nav li ul.children li a {
+  padding: 10px 10px;
+  border-right: 0;
+  display: block;
+  width: auto;
+  border-bottom: 1px solid rgba(100, 100, 100, 0.2);
+  color: #ffffff;
+}
+header[role="banner"] .nav li ul.sub-menu li a:after,
+header[role="banner"] .nav li ul.children li a:after {
+  background-color: transparent;
+}
+header[role="banner"] .nav li ul.sub-menu li:last-child a,
+header[role="banner"] .nav li ul.children li:last-child a {
+  border-bottom: 0;
+}
+header[role="banner"] .nav li ul.sub-menu li ul,
+header[role="banner"] .nav li ul.children li ul {
+  position: absolute;
+  left: 100%;
+  top: 0px;
+  display: none;
+}
+header[role="banner"] .nav li ul.sub-menu li:hover ul,
+header[role="banner"] .nav li ul.children li:hover ul {
+  display: block;
+}
+header[role="banner"] .nav li:hover ul {
+  top: auto;
+  height: auto;
+  max-height: 1000px;
+}
+
+/* end .nav */
+/*********************
+MAIN ENTRY STYLES
+*********************/
+#main {
+  width: 74.30939226%;
+  float: left;
+}
+
+#main.no-sidebar {
+  margin-left: 0px;
+}
+
+#main.sidebar-left {
+  float: right;
+}
+
+#main.sidebar-right {
+  margin-left: 0px;
+}
+
+.page-title {
+  font-size: 60px;
+}
+
+/*********************
+SIDEBARS & ASIDES
+*********************/
+#sidebar {
+  width: 22.928176794%;
+  float: left;
+  margin-top: 0px;
+}
+
+#sidebar.sidebar-left {
+  float: left;
+  margin-left: 0px;
+}
+
+.widgettitle {
+  margin-bottom: 0.5em;
+  text-align: left;
+}
+
+.widget {
+  padding: 0 10px;
+  margin: 2.2em 0;
+}
+.widget ul li {
+  /* deep nesting */
+}
+.widget ul li ul {
+  margin-top: 0.75em;
+  padding-left: 1em;
+}
+
+/* links widget */
+/* meta widget */
+/* pages widget */
+/* recent-posts widget */
+/* archives widget */
+/* tag-cloud widget */
+/* calendar widget */
+/* category widget */
+/* recent-comments widget */
+/* search widget */
+/* text widget */
+/*********************
+FOOTER STYLES
+*********************/
+/*
+you'll probably need to do quite a bit
+of overriding here if you styled them for
+mobile. Make sure to double check these!
+*/
+.footer-links ul li {
+  /*
+  be careful with the depth of your menus.
+  it's very rare to have multi-depth menus in
+  the footer.
+  */
+}
+
+/* end .footer-links */
+/*********************
+SHORTCODES
+*********************/
+/*********************
+TWITTER CAROUSEL
+*********************/
+.twitter-carousel.flexslider .luxe-tweet {
+  padding: 10px 100px;
+  font-size: 30px;
+}
+
+/*********************
+PRICING
+*********************/
+.pricing-box {
+  margin-bottom: 0px;
+}
+
+/*********************
+FEATURES
+*********************/
+.feature {
+  margin-bottom: 0px;
+}
+
+/*********************
+TESTIMONIALS
+*********************/
+.testimonial-carousel .testimonial-content {
+  padding: 10px 100px;
+  font-size: 40px;
+}
+.testimonial-carousel .testimonial-content:before, .testimonial-carousel .testimonial-content:after {
+  font-size: 40px;
+  left: 60px;
+}
+.testimonial-carousel .testimonial-content:after {
+  left: auto;
+  right: 65px;
+}
+.testimonial-carousel .testimonial-user {
+  font-size: 30px;
+}
+
+/*********************
+LUXE POSTS
+*********************/
+.luxe-post.style2 {
+  border-right: 10px solid #ff6f6f;
+  border-bottom: 0px;
+}
+
+/*********************
+PORTFOLIO
+*********************/
+.isotope {
+  margin-left: -1px !important;
+}
+
+.portfolio2c.portfolio-container {
+  margin-right: -2px !important;
+}
+.portfolio2c.portfolio-container .isotope {
+  width: 50%;
+  /*margin: 0 .8% 11px .8%;*/
+  margin: 0;
+}
+
+.portfolio3c.portfolio-container {
+  margin-right: -3px !important;
+}
+.portfolio3c.portfolio-container .isotope {
+  width: 33.33%;
+  /*margin: 0 .8% 11px .8%;*/
+  margin: 0;
+}
+
+.portfolio4c.portfolio-container {
+  margin-right: -4px !important;
+}
+.portfolio4c.portfolio-container .isotope {
+  width: 25%;
+  /*margin: 0 .5% 8px .5%;*/
+  margin: 0;
+}
+
+.portfolio5c.portfolio-container {
+  margin-right: -5px !important;
+}
+.portfolio5c.portfolio-container .isotope {
+  width: 20%;
+  /*margin: 0 .5% 8px .5%;*/
+  margin: 0;
+}
+
+/*********************
+TEAM
+*********************/
+.team-member {
+  margin-bottom: 0px;
+}
+.team-member .team-overlay .team-member-desc {
+  display: none;
+}
+
+/*********************
+ANIMATE
+*********************/
+.luxe-animate.hidden {
+  visibility: hidden;
+}
+
+.luxe-animate.animated {
+  visibility: visible;
+}
+
+/*********************
+DEMO STYLES
+*********************/
+.contact-link {
+  padding: 11px 70px;
+  font-size: 76px;
+}
+
+/******************************************************************
+File: _1030up.scss
+Stylesheet: Desktop Stylsheet
+
+This is the desktop size. It's larger than an iPad so it will only
+be seen on the Desktop. 
+
+******************************************************************/
+/*********************
+SHORTCODES
+*********************/
+/*********************
+TEAM
+*********************/
+.team-member .team-overlay .team-member-desc {
+  display: block;
+}
+
+/* 
+you can call the larger styles if you want, but there's really no need 
+*/
+/******************************************************************
+ADDITIONAL IE FIXES
+These fixes are now ONLY seen by IE, so you don't have to worry
+about using prefixes, although it's best practice. For more info
+on using Modernizr classes, check out this link:
+http://www.modernizr.com/docs/
+******************************************************************/
+/*
+For example, you can use something like:
+
+.no-textshadow .class { ... }
+
+You can also target specific versions by using the classes applied to
+the html element. These can sometimes change, so take a look inside the
+header.php file to see what they are:
+
+
+.lt-ie8 .class { ... }
+
+*/
+
+/*# sourceMappingURL=ie.css.map */

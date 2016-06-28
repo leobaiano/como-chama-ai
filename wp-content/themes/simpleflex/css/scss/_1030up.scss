@@ -1,0 +1,22 @@
+/******************************************************************
+File: _1030up.scss
+Stylesheet: Desktop Stylsheet
+
+This is the desktop size. It's larger than an iPad so it will only
+be seen on the Desktop. 
+
+******************************************************************/
+
+/*********************
+SHORTCODES
+*********************/
+/*********************
+TEAM
+*********************/
+.team-member {
+	.team-overlay {
+		.team-member-desc {
+			display: block;
+		}
+	}
+}
